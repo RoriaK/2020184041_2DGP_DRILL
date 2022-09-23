@@ -1,5 +1,5 @@
 from pico2d import *
-import math
+from math import *
 
 open_canvas()
 
@@ -41,13 +41,15 @@ while(90<y):
     delay(0.01)
 
 x=400
-y=300
-while(x,y):
+y=600
+ceta=0
+while(1):
     clear_canvas_now()
     grass.draw_now(400, 30)
-    character.draw_now(400,300)
-    math.sin(270 / 360*2*math.pi)
-    math.cos(270 / 360*2*math.pi)
+    character.draw_now(x, y)
+    x=300*cos(ceta)+400
+    y=300*sin(ceta)+300
+    ceta+=1
     delay(0.01)
 
 
