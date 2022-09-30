@@ -1,0 +1,19 @@
+★★★파이썬★★★
+
+★for문 while문 차이
+
+#for문
+    for x in range(0, 800, 5): #x의 값을 0부터 800까지 5씩 움직여라
+        clear_canvas_now()
+        update_canvas()
+        img.draw_now(x,100)
+        delay(0.01)
+
+#while문
+    x=0 #x의 초기값
+    while(x<800):
+        clear_canvas_now()
+        update_canvas()
+        img.draw_now(x,100)
+      ★x=x+5 #x를 얼만큼 움직여 줄거냐
+        dealy(0.01)
