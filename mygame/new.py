@@ -1,4 +1,3 @@
-from tkinter import Y
 from pico2d import *
 
 winWidth = 1287
@@ -33,7 +32,9 @@ def handle_events():
             running = False
 
         elif event.type == SDL_KEYDOWN:
-            if event.key == SDLK_RIGHT:
+            if event.key == SDLK_ESCAPE:
+                running = False
+            elif event.key == SDLK_RIGHT:
                 dirx = 1
             elif event.key == SDLK_LEFT:
                 dirx = -1
@@ -41,15 +42,15 @@ def handle_events():
                 diry = 1
             elif event.key == SDLK_DOWN:
                 diry = -1
-            elif event.key == SDLK_ESCAPE:
-                running = False
 
 
         elif event.type == SDL_KEYUP:
             if event.key == SDLK_ESCAPE:
                 running = False
-            else:
-                dirx = diry = 0
+            elif event.key in (SDLK_RIGHT, SDLK_LEFT):
+                dirx = 0
+            elif event.key in (SDLK_UP, SDLK_DOWN):
+                diry = 0
 
 open_canvas(winWidth, winHeight)
 
@@ -83,17 +84,17 @@ while running:
     handle_events()
 
     if y >= 350 and y <= 400:
-        if (x >= 90 or dirx == 1) and (x <= 1200 or dirx == -1):
+        if (x > 90 or dirx == 1) and (x < 1200 or dirx == -1):
             x += dirx * 5
     elif y >= 170 and y <= 550:
-        if (x >= 250 or dirx == 1) and (x <= 1040 or dirx == -1):
+        if (x > 250 or dirx == 1) and (x < 1040 or dirx == -1):
             x += dirx * 5
-    
+
     if x >= 250 and x <= 1040:
-        if (y >= 170 or diry == 1) and (y <= 550 or diry == -1):
+        if (y > 170 or diry == 1) and (y < 550 or diry == -1):
             y += diry * 5
     elif x >= 90 and x <= 1200:
-        if (y >= 350 or diry == 1) and (y <= 400 or diry == -1):
+        if (y > 350 or diry == 1) and (y < 400 or diry == -1):
             y += diry * 5
 
     delay(0.01)
