@@ -58,4 +58,3 @@ while True: #무한 루트
 
 
 close_canvas()
-
